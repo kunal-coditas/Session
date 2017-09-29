@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Download View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DownloadViewController" customModule="SessionDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZ9-t6-agq">
+                                <rect key="frame" x="24" y="308" width="327" height="50"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.59999999999999998" blue="0.10980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8nK-ry-pR1"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Download"/>
+                                <connections>
+                                    <action selector="actionDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iND-8Q-BFs"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xhs-PY-agU">
+                                <rect key="frame" x="315" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQd-l6-hz2">
+                                <rect key="frame" x="164" y="268" width="47.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xhs-PY-agU" firstAttribute="centerY" secondItem="oZ9-t6-agq" secondAttribute="centerY" id="37F-aI-HxF"/>
+                            <constraint firstItem="oZ9-t6-agq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="En6-li-zMs"/>
+                            <constraint firstItem="oZ9-t6-agq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JEW-ql-Rjm"/>
+                            <constraint firstItem="oZ9-t6-agq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="MmE-Xb-gah"/>
+                            <constraint firstItem="xhs-PY-agU" firstAttribute="trailing" secondItem="oZ9-t6-agq" secondAttribute="trailing" constant="-16" id="qLp-2k-W8f"/>
+                            <constraint firstItem="oZ9-t6-agq" firstAttribute="top" secondItem="hQd-l6-hz2" secondAttribute="bottom" constant="19" id="whE-b8-LZk"/>
+                            <constraint firstItem="hQd-l6-hz2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zXT-NV-phF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="xhs-PY-agU" id="sho-gi-GdT"/>
+                        <outlet property="btnDownload" destination="oZ9-t6-agq" id="0d3-46-xAg"/>
+                        <outlet property="lbStatus" destination="hQd-l6-hz2" id="YOx-ym-V7z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
