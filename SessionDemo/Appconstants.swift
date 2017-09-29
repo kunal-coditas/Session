@@ -16,7 +16,7 @@ struct  Appconstants {
         static let download = "Download"
         static let open = "Open"
         static let downloadingFiles = "Downloading Files"
-        static let creatingCSV = "Creatin CSV File"
+        static let creatingCSV = "Creating CSV File"
         
     }
 }

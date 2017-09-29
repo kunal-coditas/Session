@@ -14,9 +14,8 @@ class NetworkController {
         let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let destinationUrl = documentsUrl!.appendingPathComponent(fileName+url.lastPathComponent)
         
-        
         if FileManager().fileExists(atPath: destinationUrl.path) {
-            print("file already exists [\(destinationUrl.path)]")
+            CommonUtils.log(logString: "file already exists [\(destinationUrl.path)]")
             completion(destinationUrl.path, nil)
         } else {
             let sessionConfig = URLSessionConfiguration.default
@@ -27,25 +26,24 @@ class NetworkController {
             let task = session.dataTask(with: request, completionHandler: { (data:Data?, response:URLResponse?, error:Error?) in
                 if (error == nil) {
                     if let response = response as? HTTPURLResponse {
-                        print("response=\(response)")
+                        CommonUtils.log(logString: "response=\(response)")
+                        
                         if response.statusCode == 200 {
                             if (try? data!.write(to: destinationUrl, options: [.atomic])) != nil {
-                                print("file saved [\(destinationUrl.path)]")
+                                CommonUtils.log(logString: "file saved [\(destinationUrl.path)]")
                                 completion(destinationUrl.path, error)
                             } else {
-                                print("error saving file")
+                                CommonUtils.log(logString: "error saving file")
                                 let error = NSError(domain:"Error saving file", code:1001, userInfo:nil)
                                 completion(destinationUrl.path, error)
                             }
                         }
                     }
-                }
-                else {
-                    print("Failure: \(error!.localizedDescription)");
+                }else {
+                    CommonUtils.log(logString: "Failure: \(error!.localizedDescription)")
                     completion(destinationUrl.path, error)
                 }
             })
-            
             task.resume()
         }
     }
